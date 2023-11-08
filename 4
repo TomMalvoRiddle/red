@@ -1,0 +1,12 @@
+DECLARE 
+        n NUMBER := 12345;
+        rev NUMBER := 0;
+        i NUMBER;
+BEGIN
+        WHILE n > 0 LOOP
+                rev := (rev * 10) + MOD(n, 10);
+                n := TRUNC(n / 10);
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE(rev);
+END;
+/
