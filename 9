@@ -1,0 +1,52 @@
+a) CREATE TABLE Customer (
+    Cid INT PRIMARY KEY,
+    Cname VARCHAR(255),
+    Address VARCHAR(255)
+);
+
+CREATE TABLE Item (
+    Itemid INT PRIMARY KEY,
+    Iname VARCHAR(255),
+    Price DECIMAL(10, 2), -- Assuming Price is a decimal number with 2 decimal places
+    Weight DECIMAL(10, 2) -- Assuming Weight is a decimal number with 2 decimal places
+);
+
+CREATE TABLE Order (
+    Orderid VARCHAR(255) PRIMARY KEY,
+    Cid INT,
+    Itemid INT,
+    Quantity INT
+);
+
+
+b ) -- Inserting data into the Customer table
+INSERT INTO Customer (Cid, Cname, Address) VALUES
+(1, 'John Doe', '123 Main St'),
+(2, 'Jane Smith', '456 Elm St'),
+(3, 'Bob Johnson', '789 Oak St'),
+(4, 'Alice Brown', '101 Pine St');
+
+-- Inserting data into the Item table
+INSERT INTO Item (Itemid, Iname, Price, Weight) VALUES
+(101, 'Widget A', 75.00, 0.5),
+(102, 'Gadget B', 120.50, 1.2),
+(103, 'Tool C', 50.25, 2.0),
+(104, 'Ruler', 2.99, 0.1);
+
+-- Inserting data into the Order table
+INSERT INTO Order (Orderid, Cid, Itemid, Quantity) VALUES
+('ORD001', 1, 101, 2),
+('ORD002', 2, 102, 1),
+('ORD003', 3, 103, 3),
+('ORD004', 4, 104, 10);
+
+c ) SELECT Itemid
+FROM Item
+WHERE Price < 100;
+
+d) SELECT Itemid
+FROM Item
+WHERE Iname LIKE 'r%r';
+
+e) ALTER TABLE Item
+RENAME TO purchased_items;
