@@ -1,0 +1,59 @@
+a) CREATE TABLE Products (
+    ProdID INT PRIMARY KEY,
+    prod_name VARCHAR(255),
+    prod_price INT,
+    SupplierID INT
+);
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    supplier_name VARCHAR(255),
+    supplier_city VARCHAR(255),
+    supplier_pincode INT
+);
+
+CREATE TABLE Parts (
+    PartID INT PRIMARY KEY,
+    part_name VARCHAR(255),
+    SupplierID INT
+);
+
+
+b) -- Insert into Products table
+INSERT INTO Products (ProdID, prod_name, prod_price, SupplierID) VALUES
+(1, 'Product A', 100, 101),
+(2, 'Product B', 150, 102),
+(3, 'Product C', 75, 103),
+(4, 'Product D', 200, 104);
+
+-- Insert into Suppliers table
+INSERT INTO Suppliers (SupplierID, supplier_name, supplier_city, supplier_pincode) VALUES
+(101, 'Supplier 1', 'City 1', 12345),
+(102, 'Supplier 2', 'City 2', 23456),
+(103, 'Supplier 3', 'City 3', 34567),
+(104, 'Supplier 4', 'City 4', 45678);
+
+-- Insert into Parts table
+INSERT INTO Parts (PartID, part_name, SupplierID) VALUES
+(11, 'Part X', 101),
+(12, 'Part Y', 102),
+(13, 'Part Z', 103),
+(14, 'Part W', 104);
+
+c)  ALTER TABLE Products RENAME TO prod;
+
+
+d) -- Calculate the total price of all products
+SELECT SUM(prod_price) AS total_price FROM prod;
+
+-- Calculate the average price of all products
+SELECT AVG(prod_price) AS average_price FROM prod;
+
+-- Find the highest product price
+SELECT MAX(prod_price) AS highest_price FROM prod;
+
+-- Find the lowest product price
+SELECT MIN(prod_price) AS lowest_price FROM prod;
+
+-- Count the number of products
+SELECT COUNT(*) AS product_count FROM prod;
