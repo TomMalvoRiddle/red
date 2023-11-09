@@ -1,0 +1,50 @@
+a) CREATE TABLE Students (
+    StudID INTEGER PRIMARY KEY,
+    stud_name STRING,
+    stud_address STRING,
+    CourseID INTEGER
+);
+
+CREATE TABLE Courses (
+    CourseID INTEGER PRIMARY KEY,
+    Course_name STRING,
+    Course_fee INTEGER,
+    FacultyID STRING
+);
+
+CREATE TABLE Faculty (
+    FacultyID STRING PRIMARY KEY,
+    Faculty_name STRING,
+    Specialization STRING
+);
+
+b) ALTER TABLE Courses
+ADD Course_duration INTEGER;
+
+c)   -- Inserting into Students table
+INSERT INTO Students (StudID, stud_name, stud_address, CourseID)
+VALUES (1, 'John Doe', '123 Main St', 101),
+       (2, 'Alice Smith', '456 Elm St', 102),
+       (3, 'Bob Johnson', '789 Oak St', 103),
+       (4, 'Eva Williams', '567 Pine St', 101);
+
+-- Inserting into Courses table
+INSERT INTO Courses (CourseID, Course_name, Course_fee, FacultyID, Course_duration)
+VALUES (101, 'Mathematics', 500, 'F101', 90),
+       (102, 'History', 450, 'F102', 60),
+       (103, 'Physics', 550, 'F103', 75),
+       (104, 'Chemistry', 525, 'F104', 80);
+
+-- Inserting into Faculty table
+INSERT INTO Faculty (FacultyID, Faculty_name, Specialization)
+VALUES ('F101', 'John Smith', 'Mathematics'),
+       ('F102', 'Alice Johnson', 'History'),
+       ('F103', 'Bob Brown', 'Physics'),
+       ('F104', 'Eva Davis', 'Chemistry');
+
+d) UPDATE Faculty
+SET FacultyID = '40'
+WHERE FacultyID = '20';
+
+e)DELETE FROM Faculty
+WHERE Faculty_name = 'Shyam';
