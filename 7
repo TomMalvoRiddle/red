@@ -1,0 +1,72 @@
+a) CREATE TABLE Emp (
+    EmpID INTEGER PRIMARY KEY,
+    ename STRING,
+    salary INTEGER,
+    DeptID INTEGER,
+    hours INTEGER
+);
+
+CREATE TABLE Dept (
+    DeptID INTEGER PRIMARY KEY,
+    Dept_name STRING,
+    Dept_locations STRING,
+    ProjectID INTEGER
+);
+
+CREATE TABLE Projects (
+    ProjectID INTEGER PRIMARY KEY,
+    project_name STRING,
+    project_fund INTEGER
+);
+
+
+b) -- Inserting into the Emp table
+INSERT INTO Emp (EmpID, ename, salary, DeptID, hours)
+VALUES (1, 'John', 45000, 101, 40);
+
+INSERT INTO Emp (EmpID, ename, salary, DeptID, hours)
+VALUES (2, 'Mary', 52000, 102, 35);
+
+INSERT INTO Emp (EmpID, ename, salary, DeptID, hours)
+VALUES (3, 'Bob', 38000, 101, 45);
+
+INSERT INTO Emp (EmpID, ename, salary, DeptID, hours)
+VALUES (4, 'Alice', 41000, 103, 38);
+
+-- Inserting into the Dept table
+INSERT INTO Dept (DeptID, Dept_name, Dept_locations, ProjectID)
+VALUES (101, 'HR', 'New York', 201);
+
+INSERT INTO Dept (DeptID, Dept_name, Dept_locations, ProjectID)
+VALUES (102, 'Marketing', 'Los Angeles', 202);
+
+INSERT INTO Dept (DeptID, Dept_name, Dept_locations, ProjectID)
+VALUES (103, 'Finance', 'Chicago', 203);
+
+-- Inserting into the Projects table
+INSERT INTO Projects (ProjectID, project_name, project_fund)
+VALUES (201, 'Project A', 100000);
+
+INSERT INTO Projects (ProjectID, project_name, project_fund)
+VALUES (202, 'Project B', 75000);
+
+INSERT INTO Projects (ProjectID, project_name, project_fund)
+VALUES (203, 'Project C', 120000);
+
+c) i)  SELECT ProjectID
+FROM Projects
+WHERE project_name LIKE 'A%';
+
+
+ii) SELECT *
+FROM Emp
+WHERE salary > 40000;
+
+iii) SELECT *
+FROM Emp
+WHERE salary = (SELECT MIN(salary) FROM Emp);
+
+iv) SELECT DeptID
+FROM Emp
+GROUP BY DeptID
+HAVING AVG(salary) < 10000;
