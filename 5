@@ -1,0 +1,64 @@
+a)CREATE TABLE Flights (
+    FlightID INT PRIMARY KEY,
+    flight_name VARCHAR(255),
+    from_location VARCHAR(255),
+    to_location VARCHAR(255),
+    arr_time TIME,
+    dept_time TIME,
+    ticket_fare FLOAT,
+    AirID INT
+);
+
+CREATE TABLE Airport (
+    AirID INT PRIMARY KEY,
+    Terminal_name VARCHAR(255),
+    airport_city VARCHAR(255),
+    PassengerID INT
+);
+
+CREATE TABLE Passengers (
+    PassengerID INT PRIMARY KEY,
+    passenger_name VARCHAR(255),
+    age INT,
+    phone_no INT,
+    Journey_date DATE,
+    seat_no VARCHAR(10),
+    AirID INT
+);
+
+
+b) ALTER TABLE Airport
+ADD Airport_capacity INT;
+
+c)INSERT INTO Flights (FlightID, flight_name, from_location, to_location, arr_time, dept_time, ticket_fare, AirID)
+VALUES
+    (1, 'Flight 101', 'New York', 'Los Angeles', '08:00:00', '10:30:00', 6000.00, 1),
+    (2, 'Flight 102', 'Los Angeles', 'Chicago', '11:15:00', '13:45:00', 5500.00, 2),
+    (3, 'Flight 103', 'Chicago', 'Dallas', '15:20:00', '17:45:00', 4800.00, 1),
+    (4, 'Flight 104', 'Dallas', 'Miami', '18:30:00', '21:15:00', 5200.00, 3);
+
+For the Airport table:
+INSERT INTO Airport (AirID, Terminal_name, airport_city, PassengerID, Airport_capacity)
+VALUES
+    (1, 'Terminal A', 'New York', 101, 2000),
+    (2, 'Terminal B', 'Los Angeles', 102, 1800),
+    (3, 'Terminal C', 'Dallas', 103, 1500),
+    (4, 'Terminal D', 'Miami', 104, 1700);
+
+For the Passengers table:
+
+INSERT INTO Passengers (PassengerID, passenger_name, age, phone_no, Journey_date, seat_no, AirID)
+VALUES
+    (101, 'John Smith', 35, 1234567890, '2023-11-15', 'A1', 1),
+    (102, 'Alice Johnson', 28, 9876543210, '2023-11-18', 'B2', 2),
+    (103, 'Bob Davis', 42, 5678901234, '2023-11-20', 'C3', 1),
+    (104, 'Eve White', 30, 3456789012, '2023-11-25', 'D4', 4);
+
+d)UPDATE Airport
+SET airport_city = 'Visakhapatnam'
+WHERE airport_city = 'vizag';
+
+
+e)SELECT *
+FROM Flights
+WHERE ticket_fare > 5000;
